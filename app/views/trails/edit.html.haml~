@@ -1,0 +1,20 @@
+-# edit.html.haml using partial
+
+= form_tag( trail_path(@trail), :class=>'form-horizontal', :method => :put) do
+  %fieldset
+    %legend Edit Trail Details
+    .controlgroup
+      = label :trail, :title, 'Trail Name', :class=>"control-label"
+      = text_field :trail, 'name', :class=>"input-xlarge"
+    .controlgroup
+      = label :trail, :description, 'Description' , :class=>"control-label"
+      = text_area :trail, 'description', :class=>"input-xlarge", :rows=>3
+    .controlgroup
+      = label :trail, :description, 'Map Name' , :class=>"control-label"
+    .controlgroup
+      = label :trail, :description, 'Emergency Info' , :class=>"control-label"
+      = text_area :trail, 'description', :class=>"input-xlarge uneditable-input", :rows=>3
+    .form-actions
+      = submit_tag 'Save', :class=>"btn btn-primary"
+  
+  

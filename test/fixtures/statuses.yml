@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  level: 
+  lastchange: 2012-03-13 21:40:22
+  details: MyString
+
+two:
+  level: 
+  lastchange: 2012-03-13 21:40:22
+  details: MyString

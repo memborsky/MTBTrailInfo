@@ -1,0 +1,39 @@
+%h1 Trail Status
+
+%table#trailstatus
+  %thead
+    %tr
+      %th 
+      %th Trail
+      %th Notes
+      %th Last Updated
+      
+  %tbody
+    - @statuses.each do |status|
+      %tr
+        %td
+          %img{:src=>status.imageurl}
+        %td= status.trailname
+        %td= status.statusstring
+        %td= status.lastupdate
+
+%p
+%h1 Update Status
+= form_tag   :method=> :put do
+  %table#updatetable
+    %thead
+      %tr
+        %th Trail
+        %th Status
+        %th Details
+    %tbody
+      %tr
+        %td  
+          =select_tag "trail", options_from_collection_for_select(@trails, "id", "name")
+        %td
+          =select_tag "statusid", options_from_collection_for_select(@statusinfo, "id", "text")
+        %td
+          =text_area_tag "statusdetails"
+        %td
+          =submit_tag 'Update', :id=>'status_submit'
+

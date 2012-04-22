@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Trail Info</title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<section>
+<%= yield %>
+</section>
+<aside>
+<nav>
+<ul>
+  <li>Trail Information</li>
+  <li>Trail Status</li>
+  <li>Site Settings</li>
+  <li>Users</li>
+</ul>
+</nav>
+</aside>
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+%rss
+  %channel
+    %title
+    %link
+    %description
+    - @statuses.each do |status|
+      %item
+        %guid
+        %media:thumbnail
+        %title= status.trailname
+        %description= status.statusstring
+        %pubdate= status.lastupdate
+

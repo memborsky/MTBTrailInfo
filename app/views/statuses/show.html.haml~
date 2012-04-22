@@ -1,0 +1,21 @@
+%h1 Trail Status
+
+%table#trailstatus
+  %thead
+    %tr
+      %th 
+      %th Trail
+      %th Details
+      %th Last Update
+
+      
+  %tbody
+    - @statuses.each do |status|
+      %tr
+        %td
+          %img{:src=>status.imageurl}
+        %td= status.trailname
+        %td= status.statusstring
+        %td= status.lastupdate
+        %td= link_to "Edit", edit_trail_path(trail)
+

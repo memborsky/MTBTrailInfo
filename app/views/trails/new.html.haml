@@ -1,0 +1,8 @@
+%h1 Create New Trail
+
+= form_tag trails_path do
+
+  = label :trail, :name, 'Trail Name'
+  = text_field :trail, 'name'
+
+  = submit_tag 'Save Changes'

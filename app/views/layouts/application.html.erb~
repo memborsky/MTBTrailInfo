@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Trail Info</title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= stylesheet_link_tag "bootstrap" %>
+  <%= javascript_include_tag "bootstrap" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<input type="button" value="Click me" class="btn btn-primary btn-large">
+<section>
+<%= yield %>
+</section>
+<aside>
+<nav>
+
+</nav>
+</aside>
+
+</body>
+</html>

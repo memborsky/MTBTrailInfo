@@ -1,0 +1,23 @@
+.row
+  .span4
+    .span41
+      %h1 Trails
+    .span42
+      = link_to 'Add new trail', new_trail_path, :class=>"btn btn-primary"
+
+.row
+  .span4
+    %table{:class => "table-striped table-condensed table-bordered"}
+      %thead
+
+      %tbody
+        - @trails.each do |trail|
+          %tr
+            %td= trail.name
+            %td= link_to "Edit", edit_trail_path(trail), :class=>"btn btn-primary"
+            %td= button_to 'Delete', trail, :method => :delete, :class=>"btn btn-danger"
+        
+
+%p
+%br
+
