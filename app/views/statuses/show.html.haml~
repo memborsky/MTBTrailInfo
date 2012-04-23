@@ -17,5 +17,5 @@
         %td= status.trailname
         %td= status.statusstring
         %td= status.lastupdate
-        %td= link_to "Edit", edit_trail_path(trail)
+
 

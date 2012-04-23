@@ -13,7 +13,7 @@ MTBTrailInfo::Application.routes.draw do
   match 'status' => 'statuses#show'
   match 'status/edit?method=put' => 'statuses#update'
   match 'status/edit' => 'statuses#edit'
-  match 'login' => 'statuses#show'
+
 
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):

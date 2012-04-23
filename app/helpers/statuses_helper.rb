@@ -3,6 +3,14 @@ module StatusesHelper
   YELLOW = 2
   RED = 3
   BLUE = 4
+  
+  def self.status_keystrings
+    map = { GREEN => "Green",
+            YELLOW => "Yellow",
+            RED => "Red",
+            BLUE => "Blue"
+          }
+  end
 
   def self.status_map
     map = { GREEN => "Go Ride!",

@@ -13,6 +13,7 @@ MTBTrailInfo::Application.routes.draw do
   match 'status' => 'statuses#show'
   match 'status/edit?method=put' => 'statuses#update'
   match 'status/edit' => 'statuses#edit'
+  match 'status/table' => 'statuses#table'
 
 
 

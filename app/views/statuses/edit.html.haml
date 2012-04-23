@@ -23,6 +23,6 @@
 = form_tag :method=>:put do
   =select_tag "trail", options_from_collection_for_select(@trails, "id", "name"), :placeholder=>"Trail"
   =select_tag "statusid", options_from_collection_for_select(@statusinfo, "id", "text"), :placeholder=>"Status"
-  =text_field_tag( "statusdetails", :placeholder=>"Details")
+  =text_field_tag( "statusdetails")
   = submit_tag 'Update', :class=>"btn btn-primary", :id=>'status_submit'
   

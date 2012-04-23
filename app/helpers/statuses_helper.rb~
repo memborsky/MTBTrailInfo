@@ -13,10 +13,10 @@ module StatusesHelper
   end
 
   def self.image_map
-    map = { GREEN => "green.png",
-            YELLOW => "yellow.png",
-            RED => "red.png",
-            BLUE => "blue.png"
+    map = { GREEN => "/assets/green.png",
+            YELLOW => "/assets/yellow.png",
+            RED => "/assets/red.png",
+            BLUE => "/assets/blue.png"
           }
   end
 

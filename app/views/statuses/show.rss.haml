@@ -5,7 +5,7 @@
     %description
     - @statuses.each do |status|
       %item
-        %guid
+        %guid =status.trailname =status.lastupdate
         %media:thumbnail
         %title= status.trailname
         %description= status.statusstring

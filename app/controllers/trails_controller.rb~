@@ -14,7 +14,7 @@ class TrailsController < ApplicationController
       
       respond_to do |format|
         format.html  # index.html.haml
-        format.json  { render :json => @trails.to_json(:include => :status) }
+        format.json  { render :json => @trails.to_json(:include => [:status], :exclude =>[:updated_at, :created_at, :id, :trailid]) }
         format.xml  { render :xml => @trails.to_xml(:include => [:status], :exclude =>[:updated_at, :created_at, :id, :trailid]) }
       end
   end
