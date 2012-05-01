@@ -4,7 +4,6 @@ class Users < ActiveRecord::Migration
         t.string :name
         t.string :rpx_identifier
         t.boolean :admin
-        
     end
   end
 

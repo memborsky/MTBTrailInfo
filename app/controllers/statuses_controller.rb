@@ -1,5 +1,6 @@
 class StatusesController < ApplicationController
-  
+  before_filter :logged_in, :only =>[:edit, :update]
+    
   def get_status_list
       logger.debug 'enter get_status_list'
       @trails = Trail.all
@@ -146,5 +147,14 @@ class StatusesController < ApplicationController
     end
      
   end
+    
+  private 
+    def logged_in
+      isLoggedIn = (RpxHelper::logged_in session)
+      if(!isLoggedIn)
+        redirect_to login_path
+      end
+    end
+
 end
 

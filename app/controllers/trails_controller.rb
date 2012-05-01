@@ -1,4 +1,5 @@
 class TrailsController < ApplicationController
+  before_filter :logged_in
 
   def show
     id = params[:id] 
@@ -54,5 +55,13 @@ class TrailsController < ApplicationController
     flash[:notice] = "Trail '#{@trail.name}' deleted."
     redirect_to trails_path
   end
+  
+  private 
+    def logged_in
+      isLoggedIn = (RpxHelper::logged_in session)
+      if(!isLoggedIn)
+        redirect_to login_path
+      end
+    end
 
 end

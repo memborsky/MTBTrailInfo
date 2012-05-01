@@ -1,0 +1,21 @@
+module FlashHelper
+  def self.display_flash(flash)
+    fl = ''
+
+    if flash[:notice]
+      fl = fl + "<div class=\"alert alert-error\">#{flash[name]}</div>"
+    end
+    
+    if flash[:warning]
+      fl = fl + "<div class=\"alert alert\">#{flash[name]}</div>"
+    end
+    
+    if flash[:message]
+      fl = fl + "<div class=\"alert alert-info\">#{flash[name]}</div>"
+    end
+
+    flash[name] = nil;
+
+    return fl
+  end
+end

@@ -7,17 +7,53 @@
   <%= stylesheet_link_tag "bootstrap" %>
   <%= javascript_include_tag "bootstrap" %>
   <%= csrf_meta_tags %>
+  
+
 </head>
 <body>
-<input type="button" value="Click me" class="btn btn-primary btn-large">
-<section>
-<%= yield %>
-</section>
 <aside>
 <nav>
+<% if RpxHelper::logged_in session %>
+<div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <ul class="nav">
+        <li><a href="/status">Trail Status</a></li>
+        <% if RpxHelper::logged_in session %>
+        <li><a href="/trails">Trails</a></li>
+        
+        <li><a href="/users">Users</a></li>
+        <% end %>
+      </ul>
+      <ul class="nav pull-right">
+        <li><a href="/logout">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<% end %>
+ <% if flash[:notice] %>
+   <div class="alert alert-error">
+     <%= flash[:notice] %>
+   </div>
+ <% end %>
+ <% if flash[:warning] %>
+  <div class="alert" id="flash">
+    <%= flash[:warning] %>
+  </div>
+ <% end %>
+ <% if flash[:message] %>
+  <div class="alert alert-info" id="flash">
+    <%= flash[:message] %>
+  </div>
+ <% end %>
 
 </nav>
 </aside>
+<section>
+<%= yield %>
+</section>
+
 
 </body>
 </html>

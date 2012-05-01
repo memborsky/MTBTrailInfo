@@ -11,6 +11,7 @@ class TrailsController < ApplicationController
 
   def index
       @trails = Trail.all
+      @trails.sort{|a,b| a.name <=> b.name}
       
       respond_to do |format|
         format.html  # index.html.haml

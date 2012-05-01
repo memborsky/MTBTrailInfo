@@ -1,0 +1,17 @@
+
+= form_tag( user_path(@user), :class=>'form-horizontal', :method => :put) do
+  %fieldset
+    %legend Edit User Details
+    .controlgroup
+      = label :user, :title, 'Name', :class=>"control-label"
+      = text_field :user, :name, :class=>"input-xlarge"
+    .controlgroup
+      = label :user, :description, 'Admin' , :class=>"control-label"
+      = check_box :user, :admin , {}, "true", "false"
+    .controlgroup
+      = label :user, :description, 'Active' , :class=>"control-label"
+      = check_box :user, :active , {}, "true", "false"
+    .form-actions
+      = submit_tag 'Save', :class=>"btn btn-primary"
+  
+  

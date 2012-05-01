@@ -115,7 +115,7 @@ class StatusesController < ApplicationController
     returnText += "</table>"
     
     if(params[:showlegend] != nil)
-      returnText += "<table>"
+      returnText += "<table id='traillegend'>"
 
       legendColumnCount = 0
       StatusesHelper.status_map.keys.each do |key|

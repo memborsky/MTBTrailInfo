@@ -11,12 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120415231123) do
+ActiveRecord::Schema.define(:version => 20120428171306) do
 
   create_table "statuses", :force => true do |t|
     t.integer  "trail_id"
     t.integer  "level"
-    t.datetime "lastchange"
     t.string   "details"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -34,6 +33,10 @@ ActiveRecord::Schema.define(:version => 20120415231123) do
     t.string  "name"
     t.string  "rpx_identifier"
     t.boolean "admin"
+    t.string  "first_name"
+    t.string  "last_name"
+    t.string  "email"
+    t.boolean "active"
   end
 
 end
