@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   before_filter :logged_in, :except=>:login
-#  skip_before_filter :verify_authenticity_token, :only => [:create]
 
   def index
     @users = User.all
@@ -86,7 +85,6 @@ class UsersController < ApplicationController
   private 
     def logged_in
       isLoggedIn = (RpxHelper::logged_in session)
-      logger.debug "is logged in? " + isLoggedIn.inspect
       if(!isLoggedIn)
         redirect_to login_path
       end

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :logged_in, :except=>:login
+  before_filter :logged_in, :except=>[:login, :new]
 
   def index
     @users = User.all
