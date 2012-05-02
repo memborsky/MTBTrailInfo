@@ -20,6 +20,8 @@ class UsersController < ApplicationController
         
         if(user == nil)
             flash[:notice] = "User does not exist";
+        elsif(!user.active)
+            flash[:notice] = "User is not active";
         else
           session[:rpx_identifier] = user.rpx_identifier
           session[:user_id] = user.id
@@ -31,8 +33,14 @@ class UsersController < ApplicationController
   end
 
   def new
+    logger.debug "new user " + params.inspect
+     
     if(params[:token] != nil)
+      logger.debug "token is not null, authenticating"
+      
       data = RpxHelper.authenticate params
+      
+      logger.debug "auth done " + data.inspect
       
       if(data != nil)
         # is this a known user?
@@ -89,5 +97,5 @@ class UsersController < ApplicationController
         redirect_to login_path
       end
     end
-
+	
 end

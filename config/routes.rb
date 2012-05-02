@@ -20,6 +20,7 @@ MTBTrailInfo::Application.routes.draw do
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   resources :trails
   resources :users
+  match 'users/new' => 'users#new', :via => [:get, :post]
   
 
   # Sample resource route with options:
