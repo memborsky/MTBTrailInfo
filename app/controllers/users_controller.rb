@@ -3,7 +3,13 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-              
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    flash[:notice] = "User '#{@user.name}' deleted."
+    redirect_to users_path
   end
 
   def edit
@@ -56,12 +62,13 @@ class UsersController < ApplicationController
                     :active=>isAdmin,
                     :first_name => data['profile']['name']['givenName'],
                     :last_name => data['profile']['name']['familyName']}
-            User.create!(userdata)          
+            newUser = User.create!(userdata)          
             
             if(isAdmin)
               render :text=> "Account registered as admin."  
             else
               render :text => "User created, you will receive an email when you are activated."
+              UserActivationMailer.user_registered newUser
             end
         else
           render :text => "User already created."
@@ -78,8 +85,19 @@ class UsersController < ApplicationController
   
   def update
     @user = User.find params[:id]
+    
+    wasActive = @user.active
+    
     @user.update_attributes!(params[:user])
     flash[:message] = "#{@user.name} was successfully updated."
+    
+    if(!wasActive && @user.active)
+#      UserActivationMailer.user_activated(@user)
+#      UserActivationMailer.notify_admins_user_activated(@user)
+    end
+    
+      UserActivationMailer.notify_admins_user_activated(@user)
+    
     redirect_to users_path
   end
   

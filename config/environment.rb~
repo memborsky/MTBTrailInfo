@@ -1,0 +1,20 @@
+# Load the rails application
+require File.expand_path('../application', __FILE__)
+
+# Initialize the rails application
+MTBTrailInfo::Application.initialize!
+
+ActionMailer::Base.delivery_method = :smtp
+
+ActionMailer::Base.smtp_settings = {
+  :address  => ENV['SMTP_ADDRESS'],
+  :port  => ENV['SMTP_PORT'],
+  :user_name  => ENV['SMTP_USER_NAME'],
+  :password  => ENV['SMTP_PASSWORD'],
+  :authentication       => 'plain',
+ 
+}
+
+ActionMailer::Base.raise_delivery_errors = true
+
+

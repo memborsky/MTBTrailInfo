@@ -16,6 +16,7 @@
         %td= user.admin
         %td= user.active
         %td= link_to "Edit", edit_user_path(user), :class=>"btn btn-primary"
+        %td= button_to 'Delete', user, :method => :delete, :class=>"btn btn-danger"
 
 %p
 
